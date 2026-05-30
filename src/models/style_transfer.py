@@ -130,8 +130,7 @@ class StyleTransfer:
                       f"Content: {content_loss.item():.4f}, "
                       f"Style: {style_loss.item():.4f}")
         
-        # Convertir a blanco y negro al final
-        target = self.to_grayscale(target)
+        
         
         return target.detach()
     
