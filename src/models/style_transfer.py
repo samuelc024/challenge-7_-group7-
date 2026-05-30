@@ -65,13 +65,7 @@ class StyleTransfer:
         gram = torch.mm(x, x.t())
         return gram.div(b * c * h * w)
     
-    def to_grayscale(self, img):
-        """Convierte imagen a escala de grises (blanco y negro)"""
-        # Fórmula de luminancia para RGB -> Gris
-        grayscale = 0.2989 * img[:, 0:1, :, :] + 0.5870 * img[:, 1:2, :, :] + 0.1140 * img[:, 2:3, :, :]
-        # Repetir para 3 canales
-        grayscale_3ch = grayscale.repeat(1, 3, 1, 1)
-        return grayscale_3ch
+    
     
     def transfer_style(self, content_img, style_img, num_steps=400, 
                        style_weight=1e10, content_weight=0.0001):
